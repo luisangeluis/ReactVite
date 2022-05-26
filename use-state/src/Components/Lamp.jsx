@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Lamp = ({ onAll }) => {
-  const [on, setOn] = useState(1);
+  const [on, setOn] = useState(0);
   const yellow = 'yellow';
   const black = 'black';
 
