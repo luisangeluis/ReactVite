@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState();
 
   useEffect(() => {
     //Peticion axios
