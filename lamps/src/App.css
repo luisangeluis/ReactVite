@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.lamp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: yellow;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.bg-gray {
+  background-color: gray;
+}
