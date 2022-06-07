@@ -1,31 +1,21 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import axios from 'axios';
+// import axios from 'axios';
+import CardWeather from './components/CardWeather';
+import IsLoader from './components/IsLoader';
+import CardCounter from './components/CardCounter';
+import useWeather from './hooks/useWeather';
+// import useWeather
 
 function App() {
-  const [coords, setCoords] = useState();
+  const [weather, isLoader] = useWeather();
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(success);
-  }, []);
-
-  useEffect(() => {
-    if (coords != null) {
-      console.log(coords);
-      axios.get(
-        'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}'
-      );
-    }
-  }, [coords]);
-
-  const success = (pos) => {
-    let latitude = pos.coords.latitud;
-    let longitude = pos.coords.longitude;
-    console.log(crd);
-    setCoords({ latitude, longitude });
-  };
-
-  return <div className="App">{}</div>;
+  return (
+    <div className="App">
+      {isLoader ? <IsLoader /> : <CardWeather weather={weather} />}
+      <CardCounter />
+    </div>
+  );
 }
 
 export default App;
