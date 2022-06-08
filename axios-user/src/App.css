@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body,#root,.App{
+  height: 100%;
+}
+.App {
+  text-align: center;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-wrap: wrap;
+  /*flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  background-color: lightslategrey;
+}
+
+img{
+  max-width: 100%;
+}
+.card{
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 15rem;
+  background-color: steelblue;
+  opacity: 9;
+  transition: transform ease 1.1s;
+}
+
+.card:hover{
+  -webkit-transform:scale(1.1);
+  transform:scale(1.1);
+}
+
+
