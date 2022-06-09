@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card{
+  max-width: 30%;
+  background-color: lightcoral;
+  
+  
+}
+img{
+  max-width: 75%;
+  padding: 1rem;
+  
+}
