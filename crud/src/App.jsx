@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Cars from './components/Cars'
+import Car from './components/Car'
 import axios from 'axios';
 import { useEffect } from 'react';
 
@@ -9,7 +9,6 @@ function App() {
 
   useEffect(() => {
     getAllCars();
-   
   },[])
 
   const create=()=>{
@@ -20,19 +19,26 @@ function App() {
       year: 2020,
       price: 1
     }
-
     axios.post(`https://cars-crud.herokuapp.com/cars/`,car)
+      .then(response=>console.log(response.data))
+      .catch(error=>console.log(error))
+      .finally(()=>getAllCars())
+
+  }
+
+  const deleteCar =(id)=>{
+    axios.delete(`https://cars-crud.herokuapp.com/cars/${id}/`)
       .then(response=>console.log(response))
       .catch(error=>console.log(error))
-      .then(()=>getAllCars())
-
+      .finally(()=>getAllCars());
+      
   }
   
   const getAllCars=()=>{
     axios.get('https://cars-crud.herokuapp.com/cars/')
     .then((response)=>{
       setCars(response.data)
-      console.log(response)
+      console.log(response.data)
     })
     .catch(error=>console.log(error))
   }
@@ -40,10 +46,10 @@ function App() {
   return (
     <div className="App">
       <button onClick={create}>Crear</button>
+      <button onClick={()=>deleteCar(1095)}>Borrar Carro</button>
       {
         cars?.map(car=>{
-          return <Cars car={car}/>
-
+          return <Car car={car} key={car.id}/>
         })
       }
     </div>
