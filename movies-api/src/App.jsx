@@ -4,6 +4,7 @@ import axios from 'axios';
 import Movie from './components/Movie';
 function App() {
   const [movies, setMovies] = useState()
+  const {register,handleSumit} = useForm();
 
   useEffect(() => {
     getAllMovies();
@@ -40,12 +41,24 @@ function App() {
       .finally(()=>getAllMovies())
   }
 
+  const changeMovie=(id)=>{
+    const movie ={
+      name:'nombre de la pelicula'
+    }
+    axios.patch(`https://movies-crud-academlo.herokuapp.com/movies/${id}/`,movie)
+      .then(res=>{
+        console.log(res)
+        getAllMovies();
+      })
+      .catch(error=>console.log(error));
+  }
+
   return (
     <div className="App">
       <button onClick={createMovie}>Crear pelicula</button>
       {
         movies?.map(movie=>{
-          return <Movie movie={movie} key={movie.id} deleteMovie={deleteMovie}/>
+          return <Movie movie={movie} key={movie.id} deleteMovie={deleteMovie} changeMovie={changeMovie}/>
         })
 
       }
