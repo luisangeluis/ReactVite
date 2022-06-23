@@ -1,6 +1,7 @@
 import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AboutMe from './components/AboutMe';
+import Error404 from './components/Error404';
 import User from './components/User';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/about" element={<AboutMe />} />
         <Route path="/contact" element={<h2>Contact me</h2>} />
         <Route path="/user/:name" element={<User />} />
+        <Route path="/*" element={<Error404 />} />
       </Routes>
     </div>
   );
