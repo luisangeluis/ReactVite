@@ -23,9 +23,12 @@ export const productsSlice =createSlice({
         },
         deleteProduct:(state,action)=>{
             // OTRA OPCION
-            // const index =state.findIndex(e=>e.id===action.payload)
-            // state.splice(index,1)
-            return state.filter(e=>e.id!==action.payload);
+            const index =state.findIndex(e=>e.id===action.payload)
+            state.splice(index,1)
+            // return state.filter(e=>e.id!==action.payload);
+        },
+        updateProduct:(state,action)=>{
+            
         }
     }
 })

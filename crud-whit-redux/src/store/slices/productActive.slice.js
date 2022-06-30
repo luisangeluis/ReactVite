@@ -4,9 +4,9 @@ export const productActiveSlice = createSlice({
     name: 'productActive',
     initialState: null,
     reducers: {
-
+        setProductActive:(state,action)=>action.payload
     }
 })
 
-export const { } = productActiveSlice.actions
+export const { setProductActive} = productActiveSlice.actions
 export default productActiveSlice.reducer;
