@@ -1,0 +1,11 @@
+.header{
+    padding: var(--padding-mobile);
+}
+
+.header__title{
+    color:var(--secondary-color)
+}
+
+.navbar__link-active{
+    color:red
+}
